@@ -1,0 +1,17 @@
+<table>
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Tickets</th>
+            <th>Details</th>
+        </tr>
+        <%= @attractions.each do |attraction| %>
+            <tr>
+                <td><%= attraction.name %></td>
+                <td><%= attraction.tickets %></td>
+                <td><%= link_to [@detail_text_start, attraction.name].join(" "), attraction_path(attraction) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to "New Attraction", new_attraction_path if current_user.admin %>
